@@ -39,11 +39,6 @@ class DB {
     static Future<int> delete(String table, Model model) async =>
         await _db.delete(table, where: 'id = ?', whereArgs: [model.id]);
 
-    static Future<void> dropTable(String table) async {
-      await _db.execute('DROP TABLE IF EXIST $table' );
-      await _db.execute('CREATE TABLE tblMaterias (id INTEGER PRIMARY KEY NOT NULL, email STRING, comentario STRING, curp STRING)');
-
-    }
 
      static Future<List<Comentarios>> getComentarios() async{
        List<Comentarios> _tasks = [];
